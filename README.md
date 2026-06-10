@@ -120,14 +120,11 @@
 
 <div align="center">
 
-### Data Engineering
-Apache Airflow · Apache Spark · Apache Iceberg · MinIO · Oracle · PostgreSQL
+<p><strong>Data Engineering</strong> · Apache Airflow · Apache Spark · Apache Iceberg · MinIO · Oracle · PostgreSQL</p>
 
-### Software
-Python (async/await) · Click CLI · Rich Terminal UI · REST APIs
+<p><strong>Software</strong> · Python (async/await) · Click CLI · Rich Terminal UI · REST APIs</p>
 
-### DevOps & Cloud
-Docker · GCP (Vertex AI, GCS) · Terraform · GitHub Actions · OpenTelemetry
+<p><strong>DevOps &amp; Cloud</strong> · Docker · GCP (Vertex AI, GCS) · Terraform · GitHub Actions · OpenTelemetry</p>
 
 </div>
 
