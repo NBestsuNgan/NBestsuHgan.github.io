@@ -1,164 +1,190 @@
-# NBestsuNgan - Side Projects Portfolio
+<div align="center">
 
-A collection of side projects showcasing skills in data engineering, AI/ML, and software development.
+# ✦ NBestsuNgan — Side Projects
 
----
+**Data Engineering · Software Development · DevOps**
 
-## 📊 Low-code Data Distributed Processing Framework On Top Apache Airflow
+[![Projects](https://img.shields.io/badge/Projects-4-6366f1?style=flat-square)](https://github.com/NBestsuNgan)
+[![GitHub](https://img.shields.io/badge/GitHub-NBestsuNgan-181717?style=flat-square&logo=github)](https://github.com/NBestsuNgan)
 
-**Repository:** [NBestsuNgan/Low-code-Data-Distributed-Processing-Framework-On-Top-Apache-Airflow](https://github.com/NBestsuNgan/Low-code-Data-Distributed-Processing-Framework-On-Top-Apache-Airflow)
-
-### Overview
-A low-code data processing framework built on Apache Airflow that enables scalable workflow orchestration using a control table concept. This framework allows users to replicate tasks with different parameters easily without rewriting code for each new workflow.
-
-### Key Features
-- **Control Table Architecture:** 6 control tables for managing streams, process groups, processes, dependencies, schedules, and logging
-- **Dynamic DAG Generation:** Apache Airflow dynamically generates tasks based on control table configurations
-- **Data Tier Management:** Implements tiered data processing (staging → dimension/fact tables → aggregations)
-- **Multi-Service Architecture:** Integrated with Spark-Iceberg, MinIO, Oracle, and PostgreSQL
-
-### Tech Stack
-- **Orchestration:** Apache Airflow
-- **Processing:** Apache Spark with Iceberg (Open Table Format)
-- **Storage:** MinIO (S3-compatible object storage), Oracle PDB (Data Warehouse)
-- **Database:** PostgreSQL (Airflow metadata)
-- **Containerization:** Docker & Docker Compose
-
-### Architecture Highlights
-```
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│   Control Table │────▶│   Orchestrator  │────▶│  Processing     │
-│   (PostgreSQL)  │     │   (Airflow)     │     │  (Spark-Iceberg)│
-└─────────────────┘     └─────────────────┘     └─────────────────┘
-                                                        │
-                        ┌─────────────────┐            │
-                        │   Data Lakehouse│◀───────────┘
-                        │   (MinIO)       │
-                        └─────────────────┘
-                                │
-                        ┌─────────────────┐
-                        │   Data Warehouse│
-                        │   (Oracle PDB)  │
-                        └─────────────────┘
-```
+</div>
 
 ---
 
-## 🤖 cc-mimic - Lightweight Claude Code Mimic
+## 📊 Low-Code Data Distributed Processing Framework
 
-**Repository:** [NBestsuNgan/cc-mimic](https://github.com/NBestsuNgan/cc-mimic)
+<div align="center">
 
-### Overview
-A lightweight AI coding agent that mimics Claude Code functionality. Built from scratch to understand and replicate the core patterns of AI-powered coding assistants.
+[![Airflow](https://img.shields.io/badge/Apache_Airflow-017CEE?style=flat-square&logo=apacheairflow&logoColor=white)](https://airflow.apache.org/)
+[![Spark](https://img.shields.io/badge/Apache_Spark-E25A1C?style=flat-square&logo=apachespark&logoColor=white)](https://spark.apache.org/)
+[![Iceberg](https://img.shields.io/badge/Apache_Iceberg-2972D1?style=flat-square)](https://iceberg.apache.org/)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Oracle](https://img.shields.io/badge/Oracle-F80000?style=flat-square&logo=oracle&logoColor=white)](https://www.oracle.com/)
 
-### Key Features
-- **Interactive TUI:** Rich terminal user interface with streaming responses
-- **Tool System:** Extensible tool registry with approval policies
-- **Session Management:** Save, resume, and checkpoint conversations
-- **MCP Support:** Model Context Protocol server integration
-- **Configuration:** Environment-based configuration with validation
+</div>
 
-### Tech Stack
-- **Language:** Python 3.12+
-- **UI:** Rich (terminal UI library)
-- **LLM Integration:** OpenRouter API
-- **Architecture:** Async/await with Click CLI
+> A low-code framework that enables **scalable workflow orchestration** without rewriting code for each new process. Define your workflow in configuration — the framework handles the rest.
 
-### Project Structure
+### ❖ What It Does
+
+Traditional data pipelines require copy-pasting boilerplate code for every new workflow. This project flips that pattern: register your **streams → process groups → processes → dependencies** in control tables, and Airflow dynamically generates the DAGs.
+
+### ❖ Architecture
+
+```
+┌──────────────────┐       ┌──────────────────┐       ┌──────────────────┐
+│                  │       │                  │       │                  │
+│  Control Tables  │──────▶│    Airflow       │──────▶│  Spark + Iceberg │
+│  (PostgreSQL)    │       │    (Orchestrator)│       │  (Processing)    │
+│                  │       │                  │       │                  │
+└──────────────────┘       └──────────────────┘       └────────┬─────────┘
+                                                               │
+                          ┌──────────────────┐                 │
+                          │                  │◀────────────────┘
+                          │  Data Lakehouse  │
+                          │  (MinIO / S3)    │
+                          │                  │
+                          └────────┬─────────┘
+                                   │
+                          ┌────────┴─────────┐
+                          │                  │
+                          │  Data Warehouse  │
+                          │  (Oracle PDB)    │
+                          │                  │
+                          └──────────────────┘
+```
+
+### ❖ Key Details
+
+| Component | Purpose |
+|-----------|---------|
+| **6 Control Tables** | Streams, process groups, processes, dependencies, schedules, logging |
+| **Dynamic DAGs** | Generated at runtime from control table configs |
+| **Data Tiers** | Raw staging → Dimension/Fact tables → Aggregations |
+| **Multi-service** | 5 Docker containers orchestrated via `docker-compose` |
+
+[View Repository →](https://github.com/NBestsuNgan/Low-code-Data-Distributed-Processing-Framework-On-Top-Apache-Airflow)
+
+---
+
+## 🤖 cc-mimic — Build Your Own AI Coding Agent
+
+<div align="center">
+
+[![Python](https://img.shields.io/badge/Python-3.12+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Rich](https://img.shields.io/badge/Rich_Terminal-000000?style=flat-square&logo=python&logoColor=white)](https://github.com/Textualize/rich)
+[![Async](https://img.shields.io/badge/Async-await-3776AB?style=flat-square)](https://docs.python.org/3/library/asyncio.html)
+[![Click](https://img.shields.io/badge/Click_CLI-4EAA25?style=flat-square)](https://click.palletsprojects.com/)
+
+</div>
+
+> A **lightweight Claude Code mimic** — built from scratch to understand how AI coding assistants work under the hood. Forge your own agent.
+
+### ❖ Why I Built It
+
+Understanding how coding agents reason, call tools, and manage context is essential for building better developer tools. This project is a deep dive into agent architecture — no frameworks, just clean Python.
+
+### ❖ Features at a Glance
+
+```
+⌁ Streaming responses        ──▶  Real-time token streaming with Rich
+⌁ Tool approval policies     ──▶  auto-ask / allowlist / deny / full-auto
+⌁ Session persistence        ──▶  Save, resume, and checkpoint conversations
+⌁ MCP server support         ──▶  Model Context Protocol integration
+⌁ Interactive TUI            ──▶  Commands: /config /approval /stats /tools
+```
+
+### ❖ Code Architecture
+
 ```
 cc-mimic/
-├── main.py              # CLI entry point
+├── main.py              ──▶ CLI entry (Click)
 └── src/
-    ├── agent/           # Agent logic and events
-    ├── client/          # LLM client
-    ├── config/          # Configuration management
-    ├── context/         # Conversation context
-    ├── hooks/           # Lifecycle hooks
-    ├── prompts/         # System prompts
-    ├── safety/          # Safety checks
-    ├── scripts/         # Utility scripts
-    ├── tools/           # Tool implementations
-    ├── ui/              # Terminal UI
-    └── utils/           # Utilities
+    ├── agent/           ──▶  Agent loop · events · session
+    ├── client/          ──▶  LLM client abstraction
+    ├── tools/           ──▶  Tool registry · execution
+    ├── context/         ──▶  Message history · context management
+    ├── config/          ──▶  Env-based config · validation
+    ├── safety/          ──▶  Approval gates
+    └── ui/              ──▶  Terminal UI (Rich)
 ```
+
+[View Repository →](https://github.com/NBestsuNgan/cc-mimic)
 
 ---
 
-## 💬 Line Bot - Google ADK Agent on Vertex AI
+## 💬 Line Bot — Conversational Agent on GCP
 
-**Repository:** [NBestsuNgan/line-bot](https://github.com/NBestsuNgan/line-bot)
+<div align="center">
 
-### Overview
-A LINE chatbot powered by Google Agent Development Kit (ADK) and deployed on Vertex AI Agent Engine. Features enterprise search capabilities using Vertex AI Search.
+[![GCP](https://img.shields.io/badge/Google_Cloud-4285F4?style=flat-square&logo=googlecloud&logoColor=white)](https://cloud.google.com/)
+[![Vertex AI](https://img.shields.io/badge/Vertex_AI-4285F4?style=flat-square&logo=googlecloud&logoColor=white)](https://cloud.google.com/vertex-ai)
+[![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat-square&logo=terraform&logoColor=white)](https://www.terraform.io/)
+[![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)](https://github.com/features/actions)
 
-### Key Features
-- **Google ADK Integration:** Built with Google's Agent Development Kit
-- **Vertex AI Search:** Enterprise search engine integration for knowledge retrieval
-- **Cloud Deployment:** Automated deployment to Vertex AI Agent Engine
-- **CI/CD Pipeline:** GitHub Actions for continuous deployment
-- **Infrastructure as Code:** Terraform for GCP resource management
-- **Observability:** OpenTelemetry tracing and Cloud Logging
+</div>
 
-### Tech Stack
-- **Language:** Python 3.12+
-- **AI/ML:** Google ADK, Gemini 2.5 Flash, Vertex AI
-- **Cloud:** Google Cloud Platform (Vertex AI, GCS, Cloud Run)
-- **Infrastructure:** Terraform, Docker
-- **CI/CD:** GitHub Actions
-- **Dependency Management:** uv
+> A **LINE chatbot** backed by enterprise search and deployed on Google Cloud. Conversational, observable, and production-ready.
 
-### Architecture
+### ❖ How It Works
+
 ```
-┌─────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│   LINE App  │────▶│   Vertex AI     │────▶│   Vertex AI     │
-│             │     │   Agent Engine  │     │   Search        │
-└─────────────┘     └─────────────────┘     └─────────────────┘
-                            │
-                    ┌───────┴───────┐
-                    │   GCS Buckets │
-                    │   (Artifacts) │
-                    └───────────────┘
+LINE App
+    │
+    ▼
+┌──────────────────┐
+│  Vertex AI       │
+│  Agent Engine    │──── Gemini 2.5 Flash
+│                  │
+└────────┬─────────┘
+         │
+         ▼
+┌──────────────────┐
+│  Vertex AI       │
+│  Search          │──── Enterprise knowledge base
+│                  │
+└──────────────────┘
 ```
+
+### ❖ Production Setup
+
+- **Infrastructure as Code** — Terraform provisions all GCP resources
+- **CI/CD Pipeline** — GitHub Actions for automated cloud deployment
+- **Observability** — OpenTelemetry tracing + Cloud Logging
+- **Artifact Storage** — GCS buckets for session data and logs
+
+### ❖ Deploy in One Command
+
+```bash
+uv run app/agent_engine_app.py \
+  --project my-gcp-project \
+  --agent-name linebot-agent \
+  --requirements-file .requirements.txt
+```
+
+[View Repository →](https://github.com/NBestsuNgan/line-bot)
 
 ---
 
-## 🌐 Portfolio Website
+## 🛠️ Technical Toolkit
 
-**Repository:** [NBestsuNgan/NBestsuHgan.github.io](https://github.com/NBestsuNgan/NBestsuHgan.github.io)
-
-### Overview
-Personal portfolio website hosted on GitHub Pages showcasing projects and skills.
-
----
-
-## 🛠️ Skills Demonstrated
+<div align="center">
 
 ### Data Engineering
-- Apache Airflow workflow orchestration
-- Apache Spark distributed processing
-- Data lakehouse architecture (Iceberg, MinIO)
-- Data warehouse design (Oracle, PostgreSQL)
-- ETL/ELT pipeline development
+Apache Airflow · Apache Spark · Apache Iceberg · MinIO · Oracle · PostgreSQL
 
-### AI
-- Google Agent Development Kit (ADK)
-- Vertex AI and Gemini models
-- LLM integration and prompt engineering
-- AI agent architecture
-
-### Software Development
-- Python async/await patterns
-- CLI application development
-- Terminal UI with Rich
-- API design and integration
+### Software
+Python (async/await) · Click CLI · Rich Terminal UI · REST APIs
 
 ### DevOps & Cloud
-- Docker containerization
-- Google Cloud Platform (Vertex AI, GCS, Cloud Run)
-- Infrastructure as Code (Terraform)
-- CI/CD with GitHub Actions
-- Monitoring and observability (OpenTelemetry)
+Docker · GCP (Vertex AI, GCS) · Terraform · GitHub Actions · OpenTelemetry
+
+</div>
 
 ---
 
-*Last updated: June 2026*
+<div align="center">
+
+✦ [github.com/NBestsuNgan](https://github.com/NBestsuNgan) ✦
+
+</div>
