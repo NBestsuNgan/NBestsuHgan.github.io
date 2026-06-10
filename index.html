@@ -408,7 +408,7 @@
 
       <div class="terminal-line">
         <span class="prompt">~&nbsp;$</span>
-        <span>python manage.py run_pipeline --config prod.yaml</span>
+        <span>python manage.py run_pipeline --config pipeline.yaml</span>
         <span class="cursor"></span>
       </div>
     </section>
@@ -420,77 +420,6 @@
       <div class="projects">
 
         <!-- Project 1 -->
-        <article class="project-card">
-          <div class="project-header">
-            <div class="project-name">Low-Code Data Distributed Processing Framework</div>
-            <a class="project-link" href="https://github.com/NBestsuNgan/Low-code-Data-Distributed-Processing-Framework-On-Top-Apache-Airflow" target="_blank" rel="noopener">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Repository
-            </a>
-          </div>
-
-          <p class="project-desc">
-            A configuration-driven framework that eliminates boilerplate in data pipeline development.
-            Define workflows as data — the system generates and orchestrates them automatically.
-          </p>
-
-          <div class="tag-row">
-            <span class="tag">Apache Airflow</span>
-            <span class="tag">Apache Spark</span>
-            <span class="tag">Apache Iceberg</span>
-            <span class="tag">MinIO</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Oracle PDB</span>
-            <span class="tag">PostgreSQL</span>
-          </div>
-
-          <div class="highlights">
-            <div class="highlight-item">
-              <span class="highlight-key">Dynamic DAG Generation</span>
-              <span class="highlight-sep">—</span>
-              <span class="highlight-val">Airflow DAGs generated at runtime from database configuration — no Python code per workflow</span>
-            </div>
-            <div class="highlight-item">
-              <span class="highlight-key">Control Table Architecture</span>
-              <span class="highlight-sep">—</span>
-              <span class="highlight-val">6 relational tables (streams, process groups, processes, dependencies, schedules, logging) as single source of truth</span>
-            </div>
-            <div class="highlight-item">
-              <span class="highlight-key">Data Lakehouse Pattern</span>
-              <span class="highlight-sep">—</span>
-              <span class="highlight-val">Spark on Iceberg open table format over MinIO — ACID transactions and schema evolution on object storage</span>
-            </div>
-            <div class="highlight-item">
-              <span class="highlight-key">Multi-tier Data Flow</span>
-              <span class="highlight-sep">—</span>
-              <span class="highlight-val">Raw staging → Dimension/Fact tables → Aggregations, with Oracle PDB as downstream warehouse</span>
-            </div>
-            <div class="highlight-item">
-              <span class="highlight-key">Containerized Stack</span>
-              <span class="highlight-sep">—</span>
-              <span class="highlight-val">5 services orchestrated via Docker Compose for reproducible local and production environments</span>
-            </div>
-          </div>
-
-          <div class="arch-block">
-            <pre>┌──────────────────┐       ┌──────────────────┐       ┌──────────────────┐
-│  Control Tables  │──────▶│    Airflow       │──────▶│  Spark + Iceberg │
-│  (PostgreSQL)    │       │    (Orchestrator)│       │  (Processing)    │
-└──────────────────┘       └──────────────────┘       └────────┬─────────┘
-                                                               │
-                          ┌──────────────────┐                 │
-                          │  Data Lakehouse  │◀────────────────┘
-                          │  (MinIO / S3)    │
-                          └────────┬─────────┘
-                                   │
-                          ┌────────┴─────────┐
-                          │  Data Warehouse  │
-                          │  (Oracle PDB)    │
-                          └──────────────────┘</pre>
-          </div>
-        </article>
-
-        <!-- Project 2 -->
         <article class="project-card">
           <div class="project-header">
             <div class="project-name">cc-mimic — AI Coding Agent from Scratch</div>
@@ -539,6 +468,110 @@
               <span class="highlight-sep">—</span>
               <span class="highlight-val">Model Context Protocol support for connecting external tool servers — open standard for agent-tool communication</span>
             </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <div class="project-header">
+            <div class="project-name">Low-Code Data Distributed Processing Framework</div>
+            <a class="project-link" href="https://github.com/NBestsuNgan/Low-code-Data-Distributed-Processing-Framework-On-Top-Apache-Airflow" target="_blank" rel="noopener">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Repository
+            </a>
+          </div>
+
+          <p class="project-desc">
+            A configuration-driven framework that eliminates boilerplate in data pipeline development.
+            Define workflows as data — the system generates and orchestrates them automatically.
+          </p>
+
+          <div class="tag-row">
+            <span class="tag">Apache Airflow</span>
+            <span class="tag">Apache Spark</span>
+            <span class="tag">Apache Iceberg</span>
+            <span class="tag">MinIO</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Oracle PDB</span>
+            <span class="tag">PostgreSQL</span>
+          </div>
+
+          <div class="highlights">
+            <div class="highlight-item">
+              <span class="highlight-key">Dynamic DAG Generation</span>
+              <span class="highlight-sep">—</span>
+              <span class="highlight-val">Airflow DAGs generated at runtime from database configuration — no Python code per workflow</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-key">Control Table Architecture</span>
+              <span class="highlight-sep">—</span>
+              <span class="highlight-val">6 relational tables (streams, process groups, processes, dependencies, schedules, logging) as single source of truth</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-key">Data Lakehouse Pattern</span>
+              <span class="highlight-sep">—</span>
+              <span class="highlight-val">Spark on Iceberg open table format over MinIO — ACID transactions and schema evolution on object storage</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-key">Multi-tier Data Flow</span>
+              <span class="highlight-sep">—</span>
+              <span class="highlight-val">Raw staging → Dimension/Fact tables → Aggregations, with Oracle PDB as downstream warehouse</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-key">Containerized Stack</span>
+              <span class="highlight-sep">—</span>
+              <span class="highlight-val">5 services (Airflow, Spark, Iceberg, MinIO, PostgreSQL) orchestrated via Docker Compose for a fully self-contained local environment</span>
+            </div>
+          </div>
+
+          <!-- SVG Architecture Diagram -->
+          <div class="arch-block" style="padding: 24px 16px;">
+            <svg viewBox="0 0 740 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;" font-family="'JetBrains Mono', monospace" font-size="12">
+              <defs>
+                <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L8,3 z" fill="#8B949E"/>
+                </marker>
+              </defs>
+
+              <!-- Row 1 boxes -->
+              <!-- Control Tables -->
+              <rect x="10" y="30" width="150" height="56" rx="4" fill="#0D1117" stroke="#21262D" stroke-width="1.5"/>
+              <text x="85" y="53" text-anchor="middle" fill="#E6EDF3" font-weight="500">Control Tables</text>
+              <text x="85" y="72" text-anchor="middle" fill="#8B949E">(PostgreSQL)</text>
+
+              <!-- Airflow -->
+              <rect x="220" y="30" width="150" height="56" rx="4" fill="#0D1117" stroke="#21262D" stroke-width="1.5"/>
+              <text x="295" y="53" text-anchor="middle" fill="#E6EDF3" font-weight="500">Airflow</text>
+              <text x="295" y="72" text-anchor="middle" fill="#8B949E">(Orchestrator)</text>
+
+              <!-- Spark + Iceberg -->
+              <rect x="430" y="30" width="150" height="56" rx="4" fill="#0D1117" stroke="#21262D" stroke-width="1.5"/>
+              <text x="505" y="53" text-anchor="middle" fill="#E6EDF3" font-weight="500">Spark + Iceberg</text>
+              <text x="505" y="72" text-anchor="middle" fill="#8B949E">(Processing)</text>
+
+              <!-- Arrow: Control Tables → Airflow -->
+              <line x1="160" y1="58" x2="218" y2="58" stroke="#8B949E" stroke-width="1.5" marker-end="url(#arr)"/>
+
+              <!-- Arrow: Airflow → Spark -->
+              <line x1="370" y1="58" x2="428" y2="58" stroke="#8B949E" stroke-width="1.5" marker-end="url(#arr)"/>
+
+              <!-- Arrow: Spark down to Lakehouse -->
+              <line x1="505" y1="86" x2="505" y2="160" stroke="#8B949E" stroke-width="1.5"/>
+              <line x1="505" y1="160" x2="372" y2="160" stroke="#8B949E" stroke-width="1.5" marker-end="url(#arr)"/>
+
+              <!-- Data Lakehouse (MinIO) -->
+              <rect x="220" y="132" width="150" height="56" rx="4" fill="#0D1117" stroke="#21262D" stroke-width="1.5"/>
+              <text x="295" y="155" text-anchor="middle" fill="#E6EDF3" font-weight="500">Data Lakehouse</text>
+              <text x="295" y="174" text-anchor="middle" fill="#8B949E">(MinIO / S3)</text>
+
+              <!-- Arrow: Lakehouse down to Warehouse -->
+              <line x1="295" y1="188" x2="295" y2="232" stroke="#8B949E" stroke-width="1.5" marker-end="url(#arr)"/>
+
+              <!-- Data Warehouse (Oracle) -->
+              <rect x="220" y="232" width="150" height="56" rx="4" fill="#0D1117" stroke="#6366F1" stroke-width="1.5"/>
+              <text x="295" y="255" text-anchor="middle" fill="#E6EDF3" font-weight="500">Data Warehouse</text>
+              <text x="295" y="274" text-anchor="middle" fill="#8B949E">(Oracle PDB)</text>
+            </svg>
           </div>
         </article>
 
