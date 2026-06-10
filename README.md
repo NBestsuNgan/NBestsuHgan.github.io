@@ -27,51 +27,40 @@
 
 </div>
 
-> A low-code framework that enables **scalable workflow orchestration** without rewriting code for each new process. Define your workflow in configuration — the framework handles the rest.
+> A configuration-driven framework that eliminates boilerplate in data pipeline development. Define workflows as data — the system generates and orchestrates them automatically.
 
-### ❖ What It Does
+### ❖ Technical Highlights
 
-Traditional data pipelines require copy-pasting boilerplate code for every new workflow. This project flips that pattern: register your **streams → process groups → processes → dependencies** in control tables, and Airflow dynamically generates the DAGs.
+- **Dynamic DAG Generation** — Apache Airflow DAGs are generated at runtime from database configurations, removing the need to write new Python code for each workflow
+- **Control Table Architecture** — 6 relational tables (streams, process groups, processes, dependencies, schedules, logging) serve as the single source of truth for all pipeline metadata
+- **Data Lakehouse Pattern** — Apache Spark processes data on top of Apache Iceberg open table format, stored on MinIO (S3-compatible), enabling ACID transactions and schema evolution on object storage
+- **Multi-tier Data Flow** — Raw staging → Dimension/Fact tables → Aggregations, with Oracle PDB as the downstream data warehouse
+- **Containerized Stack** — 5 services (Airflow, Spark, Iceberg, MinIO, PostgreSQL) orchestrated via Docker Compose
 
 ### ❖ Architecture
 
 ```
 ┌──────────────────┐       ┌──────────────────┐       ┌──────────────────┐
-│                  │       │                  │       │                  │
 │  Control Tables  │──────▶│    Airflow       │──────▶│  Spark + Iceberg │
 │  (PostgreSQL)    │       │    (Orchestrator)│       │  (Processing)    │
-│                  │       │                  │       │                  │
 └──────────────────┘       └──────────────────┘       └────────┬─────────┘
                                                                │
                           ┌──────────────────┐                 │
-                          │                  │◀────────────────┘
-                          │  Data Lakehouse  │
+                          │  Data Lakehouse  │◀────────────────┘
                           │  (MinIO / S3)    │
-                          │                  │
                           └────────┬─────────┘
                                    │
                           ┌────────┴─────────┐
-                          │                  │
                           │  Data Warehouse  │
                           │  (Oracle PDB)    │
-                          │                  │
                           └──────────────────┘
 ```
-
-### ❖ Key Details
-
-| Component | Purpose |
-|-----------|---------|
-| **6 Control Tables** | Streams, process groups, processes, dependencies, schedules, logging |
-| **Dynamic DAGs** | Generated at runtime from control table configs |
-| **Data Tiers** | Raw staging → Dimension/Fact tables → Aggregations |
-| **Multi-service** | 5 Docker containers orchestrated via `docker-compose` |
 
 [View Repository →](https://github.com/NBestsuNgan/Low-code-Data-Distributed-Processing-Framework-On-Top-Apache-Airflow)
 
 ---
 
-## 🤖 cc-mimic — Build Your Own AI Coding Agent
+## 🤖 cc-mimic — AI Coding Agent from Scratch
 
 <div align="center">
 
@@ -84,36 +73,16 @@ Traditional data pipelines require copy-pasting boilerplate code for every new w
 
 </div>
 
-> A **lightweight Claude Code mimic** — built from scratch to understand how AI coding assistants work under the hood. Forge your own agent.
+> A terminal-based AI coding agent built from scratch — featuring tool execution, streaming responses, and session management. No agent frameworks, just clean async Python.
 
-### ❖ Why I Built It
+### ❖ Technical Highlights
 
-Understanding how coding agents reason, call tools, and manage context is essential for building better developer tools. This project is a deep dive into agent architecture — no frameworks, just clean Python.
-
-### ❖ Features at a Glance
-
-```
-⌁ Streaming responses        ──▶  Real-time token streaming with Rich
-⌁ Tool approval policies     ──▶  auto-ask / allowlist / deny / full-auto
-⌁ Session persistence        ──▶  Save, resume, and checkpoint conversations
-⌁ MCP server support         ──▶  Model Context Protocol integration
-⌁ Interactive TUI            ──▶  Commands: /config /approval /stats /tools
-```
-
-### ❖ Code Architecture
-
-```
-cc-mimic/
-├── main.py              ──▶ CLI entry (Click)
-└── src/
-    ├── agent/           ──▶  Agent loop · events · session
-    ├── client/          ──▶  LLM client abstraction
-    ├── tools/           ──▶  Tool registry · execution
-    ├── context/         ──▶  Message history · context management
-    ├── config/          ──▶  Env-based config · validation
-    ├── safety/          ──▶  Approval gates
-    └── ui/              ──▶  Terminal UI (Rich)
-```
+- **Agent Loop Architecture** — Implements the core reasoning-action-observation cycle: the agent receives a prompt, decides which tools to call, executes them, and feeds results back into context iteratively
+- **Tool Registry with Approval Policies** — Extensible tool system with 4 safety levels (auto-ask, allowlist, deny, full-auto) controlling which tools can execute without user confirmation
+- **Streaming LLM Responses** — Real-time token streaming via Rich terminal UI, providing responsive feedback during long-running operations
+- **Session Persistence** — Conversations are checkpointed and resumable, with full message history preserved across sessions
+- **MCP Server Integration** — Supports Model Context Protocol for connecting external tool servers, following the open standard for agent-tool communication
+- **Async/Await Throughout** — Built on Python asyncio for non-blocking I/O when calling LLM APIs and executing tools concurrently
 
 [View Repository →](https://github.com/NBestsuNgan/cc-mimic)
 
@@ -132,43 +101,16 @@ cc-mimic/
 
 </div>
 
-> A **LINE chatbot** backed by enterprise search and deployed on Google Cloud. Conversational, observable, and production-ready.
+> A LINE chatbot powered by enterprise search on Google Cloud. Built with Google ADK and deployed as a managed service on Vertex AI Agent Engine.
 
-### ❖ How It Works
+### ❖ Technical Highlights
 
-```
-LINE App
-    │
-    ▼
-┌──────────────────┐
-│  Vertex AI       │
-│  Agent Engine    │──── Gemini 2.5 Flash
-│                  │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│  Vertex AI       │
-│  Search          │──── Enterprise knowledge base
-│                  │
-└──────────────────┘
-```
-
-### ❖ Production Setup
-
-- **Infrastructure as Code** — Terraform provisions all GCP resources
-- **CI/CD Pipeline** — GitHub Actions for automated cloud deployment
-- **Observability** — OpenTelemetry tracing + Cloud Logging
-- **Artifact Storage** — GCS buckets for session data and logs
-
-### ❖ Deploy in One Command
-
-```bash
-uv run app/agent_engine_app.py \
-  --project my-gcp-project \
-  --agent-name linebot-agent \
-  --requirements-file .requirements.txt
-```
+- **Google Agent Development Kit (ADK)** — Built using Google's official framework for developing conversational agents with structured tool calling and state management
+- **Vertex AI Search Integration** — Connects to enterprise knowledge base for retrieval-augmented responses, grounding answers in real documents
+- **Infrastructure as Code** — All GCP resources (Agent Engine, GCS buckets, IAM) provisioned via Terraform for reproducible deployments
+- **CI/CD Pipeline** — GitHub Actions workflow automates build, test, and deployment to Vertex AI on every push
+- **Observability** — OpenTelemetry tracing integrated for end-to-end request visibility, with Cloud Logging for structured log aggregation
+- **Managed Deployment** — Runs on Vertex AI Agent Engine (fully managed), handling scaling, health monitoring, and versioning
 
 [View Repository →](https://github.com/NBestsuNgan/line-bot)
 
