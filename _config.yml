@@ -1,6 +1,30 @@
-theme: jekyll-theme-minimal
-title: Nate's homepage
+title: NBestsuNgan — Side Projects
 description: Data Engineering · Software Development · DevOps
-show_downloads: true
-google_analytics:
-logo: https://github.com/NBestsuNgan.png
+url: "https://nbestsungan.github.io"
+baseurl: "/NBestsuHgan.github.io"
+
+author:
+  name: NBestsuNgan
+  github: NBestsuNgan
+  url: https://github.com/NBestsuNgan
+
+# No Jekyll theme — using custom standalone index.html
+theme: null
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: https://github.com/NBestsuNgan.png
+
+# Exclude dev/config files from build output
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore
