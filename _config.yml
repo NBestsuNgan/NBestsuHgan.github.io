@@ -1,19 +1,6 @@
 theme: jekyll-theme-minimal
 title: Nate's homepage
 description: Data Engineering · Software Development · DevOps
-show_downloads: false
+show_downloads: true
 google_analytics:
 logo: https://github.com/NBestsuNgan.png
-author:
-  name: NBestsuNgan
-  github: NBestsuNgan
-  url: https://github.com/NBestsuNgan
-plugins:
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-feed
-defaults:
-  - scope:
-      path: ""
-    values:
-      image: https://github.com/NBestsuNgan.png
