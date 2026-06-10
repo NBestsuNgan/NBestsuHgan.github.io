@@ -4,8 +4,10 @@
 
 **Data Engineering · Software Development · DevOps**
 
-[![Projects](https://img.shields.io/badge/Projects-4-6366f1?style=flat-square)](https://github.com/NBestsuNgan)
-[![GitHub](https://img.shields.io/badge/GitHub-NBestsuNgan-181717?style=flat-square&logo=github)](https://github.com/NBestsuNgan)
+<p>
+  <a href="https://github.com/NBestsuNgan"><img src="https://img.shields.io/badge/Projects-4-6366f1?style=flat-square" alt="Projects"></a>
+  <a href="https://github.com/NBestsuNgan"><img src="https://img.shields.io/badge/GitHub-NBestsuNgan-181717?style=flat-square&logo=github" alt="GitHub"></a>
+</p>
 
 </div>
 
@@ -15,11 +17,13 @@
 
 <div align="center">
 
-[![Airflow](https://img.shields.io/badge/Apache_Airflow-017CEE?style=flat-square&logo=apacheairflow&logoColor=white)](https://airflow.apache.org/)
-[![Spark](https://img.shields.io/badge/Apache_Spark-E25A1C?style=flat-square&logo=apachespark&logoColor=white)](https://spark.apache.org/)
-[![Iceberg](https://img.shields.io/badge/Apache_Iceberg-2972D1?style=flat-square)](https://iceberg.apache.org/)
-[![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)](https://www.docker.com/)
-[![Oracle](https://img.shields.io/badge/Oracle-F80000?style=flat-square&logo=oracle&logoColor=white)](https://www.oracle.com/)
+<p>
+  <a href="https://airflow.apache.org/"><img src="https://img.shields.io/badge/Apache_Airflow-017CEE?style=flat-square&logo=apacheairflow&logoColor=white" alt="Airflow"></a>
+  <a href="https://spark.apache.org/"><img src="https://img.shields.io/badge/Apache_Spark-E25A1C?style=flat-square&logo=apachespark&logoColor=white" alt="Spark"></a>
+  <a href="https://iceberg.apache.org/"><img src="https://img.shields.io/badge/Apache_Iceberg-2972D1?style=flat-square" alt="Iceberg"></a>
+  <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker"></a>
+  <a href="https://www.oracle.com/"><img src="https://img.shields.io/badge/Oracle-F80000?style=flat-square&logo=oracle&logoColor=white" alt="Oracle"></a>
+</p>
 
 </div>
 
@@ -71,10 +75,12 @@ Traditional data pipelines require copy-pasting boilerplate code for every new w
 
 <div align="center">
 
-[![Python](https://img.shields.io/badge/Python-3.12+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
-[![Rich](https://img.shields.io/badge/Rich_Terminal-000000?style=flat-square&logo=python&logoColor=white)](https://github.com/Textualize/rich)
-[![Async](https://img.shields.io/badge/Async-await-3776AB?style=flat-square)](https://docs.python.org/3/library/asyncio.html)
-[![Click](https://img.shields.io/badge/Click_CLI-4EAA25?style=flat-square)](https://click.palletsprojects.com/)
+<p>
+  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.12+-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"></a>
+  <a href="https://github.com/Textualize/rich"><img src="https://img.shields.io/badge/Rich_Terminal-000000?style=flat-square&logo=python&logoColor=white" alt="Rich"></a>
+  <a href="https://docs.python.org/3/library/asyncio.html"><img src="https://img.shields.io/badge/Async-await-3776AB?style=flat-square" alt="Async"></a>
+  <a href="https://click.palletsprojects.com/"><img src="https://img.shields.io/badge/Click_CLI-4EAA25?style=flat-square" alt="Click"></a>
+</p>
 
 </div>
 
@@ -117,10 +123,12 @@ cc-mimic/
 
 <div align="center">
 
-[![GCP](https://img.shields.io/badge/Google_Cloud-4285F4?style=flat-square&logo=googlecloud&logoColor=white)](https://cloud.google.com/)
-[![Vertex AI](https://img.shields.io/badge/Vertex_AI-4285F4?style=flat-square&logo=googlecloud&logoColor=white)](https://cloud.google.com/vertex-ai)
-[![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat-square&logo=terraform&logoColor=white)](https://www.terraform.io/)
-[![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)](https://github.com/features/actions)
+<p>
+  <a href="https://cloud.google.com/"><img src="https://img.shields.io/badge/Google_Cloud-4285F4?style=flat-square&logo=googlecloud&logoColor=white" alt="GCP"></a>
+  <a href="https://cloud.google.com/vertex-ai"><img src="https://img.shields.io/badge/Vertex_AI-4285F4?style=flat-square&logo=googlecloud&logoColor=white" alt="Vertex AI"></a>
+  <a href="https://www.terraform.io/"><img src="https://img.shields.io/badge/Terraform-7B42BC?style=flat-square&logo=terraform&logoColor=white" alt="Terraform"></a>
+  <a href="https://github.com/features/actions"><img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white" alt="GitHub Actions"></a>
+</p>
 
 </div>
 
